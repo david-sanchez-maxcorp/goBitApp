@@ -6,7 +6,19 @@ import Colors from "./Colors";
 // Similar to an XML fragment layout in Android
 
 const ApplicationStyles = {
-  screen: {}
+  screen: {
+    container: {
+      flex: 1
+    },
+    logo: {
+      height: 180,
+      width: 180,
+      resizeMode: "contain"
+    },
+    centered: {
+      alignItems: "center"
+    }
+  }
 };
 
 export default ApplicationStyles;

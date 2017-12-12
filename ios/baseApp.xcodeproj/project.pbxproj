@@ -51,6 +51,18 @@
 		AB6D493E806F4A3E93CBE7FD /* libyoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62F9CEAAFC2F40C7A1655B49 /* libyoga.a */; };
 		B4FE7668B7474A4FB5759849 /* libcxxreact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1C3E2483CF4604BB3F1387 /* libcxxreact.a */; };
 		DF137F6E17C74BAAB8B30DF0 /* libjschelpers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F8D71BA6D948B0BE0625ED /* libjschelpers.a */; };
+		988CA43DDE6248F3BAFAFF7B /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D7099EB24E4221B656194E /* libBVLinearGradient.a */; };
+		136905952EA6409296374EFA /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DA51CD984549518514E02A /* libReactNativeConfig.a */; };
+		6E9B1C69AAA94AC39F72D4DF /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48EBFDF23C2E426387F3AC3C /* OpenSans-Bold.ttf */; };
+		4085B35F61A4498C86E5CE94 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04679474D96545BFA506E8C8 /* OpenSans-BoldItalic.ttf */; };
+		A3F4EE9106FF41C3BA2DFBB9 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 090C4AE859394C6DB988828B /* OpenSans-ExtraBold.ttf */; };
+		619066EF3FBE45168E2C43D1 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 754C934669C1474FA0746684 /* OpenSans-ExtraBoldItalic.ttf */; };
+		8394038DC25A4CDFB6ED2124 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2948AB66CB484AE693A93E11 /* OpenSans-Italic.ttf */; };
+		A0000F47A3F4476B932C83A3 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1324B1DF383D4FDCBE2DE9E0 /* OpenSans-Light.ttf */; };
+		90545B4D828E40898FC1A112 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58F9A5DB01FE44F6ADD8E5B9 /* OpenSans-LightItalic.ttf */; };
+		936C1B159E204FE093D4982B /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 544CCACCED9A48F585F1C8EC /* OpenSans-Regular.ttf */; };
+		FD8332F4831A434EB2EE64F7 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A45F78D7304A447A93C2B20B /* OpenSans-Semibold.ttf */; };
+		5484794E8DFC4646B11D275D /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5676968790F64FA8B404F7F2 /* OpenSans-SemiboldItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -295,6 +307,20 @@
 		62F9CEAAFC2F40C7A1655B49 /* libyoga.a */ = {isa = PBXFileReference; name = "libyoga.a"; path = "libyoga.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		BA1C3E2483CF4604BB3F1387 /* libcxxreact.a */ = {isa = PBXFileReference; name = "libcxxreact.a"; path = "libcxxreact.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		70F8D71BA6D948B0BE0625ED /* libjschelpers.a */ = {isa = PBXFileReference; name = "libjschelpers.a"; path = "libjschelpers.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		02E8F5346A7E40E7935A6008 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; name = "BVLinearGradient.xcodeproj"; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		24D7099EB24E4221B656194E /* libBVLinearGradient.a */ = {isa = PBXFileReference; name = "libBVLinearGradient.a"; path = "libBVLinearGradient.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		8148C5C2DA8545B2986AB60F /* ReactNativeConfig.xcodeproj */ = {isa = PBXFileReference; name = "ReactNativeConfig.xcodeproj"; path = "../node_modules/react-native-config/ios/ReactNativeConfig.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		41DA51CD984549518514E02A /* libReactNativeConfig.a */ = {isa = PBXFileReference; name = "libReactNativeConfig.a"; path = "libReactNativeConfig.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		48EBFDF23C2E426387F3AC3C /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; name = "OpenSans-Bold.ttf"; path = "../app/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		04679474D96545BFA506E8C8 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; name = "OpenSans-BoldItalic.ttf"; path = "../app/fonts/OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		090C4AE859394C6DB988828B /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; name = "OpenSans-ExtraBold.ttf"; path = "../app/fonts/OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		754C934669C1474FA0746684 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; name = "OpenSans-ExtraBoldItalic.ttf"; path = "../app/fonts/OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2948AB66CB484AE693A93E11 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; name = "OpenSans-Italic.ttf"; path = "../app/fonts/OpenSans-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1324B1DF383D4FDCBE2DE9E0 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; name = "OpenSans-Light.ttf"; path = "../app/fonts/OpenSans-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		58F9A5DB01FE44F6ADD8E5B9 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; name = "OpenSans-LightItalic.ttf"; path = "../app/fonts/OpenSans-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		544CCACCED9A48F585F1C8EC /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; name = "OpenSans-Regular.ttf"; path = "../app/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A45F78D7304A447A93C2B20B /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; name = "OpenSans-Semibold.ttf"; path = "../app/fonts/OpenSans-Semibold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5676968790F64FA8B404F7F2 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; name = "OpenSans-SemiboldItalic.ttf"; path = "../app/fonts/OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,6 +354,8 @@
 				AB6D493E806F4A3E93CBE7FD /* libyoga.a in Frameworks */,
 				B4FE7668B7474A4FB5759849 /* libcxxreact.a in Frameworks */,
 				DF137F6E17C74BAAB8B30DF0 /* libjschelpers.a in Frameworks */,
+				988CA43DDE6248F3BAFAFF7B /* libBVLinearGradient.a in Frameworks */,
+				136905952EA6409296374EFA /* libReactNativeConfig.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +526,8 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				9735DE8240F14D158D0F1FFA /* RNVectorIcons.xcodeproj */,
 				58D44CEF69C3471F8BDD1760 /* RNI18n.xcodeproj */,
+				02E8F5346A7E40E7935A6008 /* BVLinearGradient.xcodeproj */,
+				8148C5C2DA8545B2986AB60F /* ReactNativeConfig.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -557,6 +587,16 @@
 				B3F1A9DB0FFE445B976AB7B6 /* Octicons.ttf */,
 				C076E73EA4684429AD9938F8 /* SimpleLineIcons.ttf */,
 				42FCCB1BE2A24D6EAAA02023 /* Zocial.ttf */,
+				48EBFDF23C2E426387F3AC3C /* OpenSans-Bold.ttf */,
+				04679474D96545BFA506E8C8 /* OpenSans-BoldItalic.ttf */,
+				090C4AE859394C6DB988828B /* OpenSans-ExtraBold.ttf */,
+				754C934669C1474FA0746684 /* OpenSans-ExtraBoldItalic.ttf */,
+				2948AB66CB484AE693A93E11 /* OpenSans-Italic.ttf */,
+				1324B1DF383D4FDCBE2DE9E0 /* OpenSans-Light.ttf */,
+				58F9A5DB01FE44F6ADD8E5B9 /* OpenSans-LightItalic.ttf */,
+				544CCACCED9A48F585F1C8EC /* OpenSans-Regular.ttf */,
+				A45F78D7304A447A93C2B20B /* OpenSans-Semibold.ttf */,
+				5676968790F64FA8B404F7F2 /* OpenSans-SemiboldItalic.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -941,6 +981,16 @@
 				1B1D421D5332435A9C4E6E9C /* Octicons.ttf in Resources */,
 				0937BF7FB6CD4015A18E6592 /* SimpleLineIcons.ttf in Resources */,
 				69140FB62DA54ACCA0E23834 /* Zocial.ttf in Resources */,
+				6E9B1C69AAA94AC39F72D4DF /* OpenSans-Bold.ttf in Resources */,
+				4085B35F61A4498C86E5CE94 /* OpenSans-BoldItalic.ttf in Resources */,
+				A3F4EE9106FF41C3BA2DFBB9 /* OpenSans-ExtraBold.ttf in Resources */,
+				619066EF3FBE45168E2C43D1 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				8394038DC25A4CDFB6ED2124 /* OpenSans-Italic.ttf in Resources */,
+				A0000F47A3F4476B932C83A3 /* OpenSans-Light.ttf in Resources */,
+				90545B4D828E40898FC1A112 /* OpenSans-LightItalic.ttf in Resources */,
+				936C1B159E204FE093D4982B /* OpenSans-Regular.ttf in Resources */,
+				FD8332F4831A434EB2EE64F7 /* OpenSans-Semibold.ttf in Resources */,
+				5484794E8DFC4646B11D275D /* OpenSans-SemiboldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1079,11 +1129,15 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 				);
 			};
 			name = Debug;
@@ -1109,11 +1163,15 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 				);
 			};
 			name = Release;
@@ -1137,6 +1195,8 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 				);
 			};
 			name = Debug;
@@ -1159,6 +1219,8 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 				);
 			};
 			name = Release;
@@ -1193,11 +1255,15 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 				);
 			};
 			name = Debug;
@@ -1232,11 +1298,15 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 				);
 			};
 			name = Release;
@@ -1266,6 +1336,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -1290,6 +1362,8 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
