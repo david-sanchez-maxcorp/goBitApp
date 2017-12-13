@@ -18,23 +18,40 @@ import GradientButton from '../Components/GradientButton'
 
 const Form = t.form.Form
 
-import styles from './Styles/LoginScreenStyle'
+import styles from './Styles/RegisterScreenStyle'
 
-const Person = t.struct({
-  email: t.String, // a required string
-  password: t.String // an optional string
-})
+const samePasswords = x => {
+  return x.password === x.password_confirmation
+}
+
+// here we are: define your domain model
+const Person = t.subtype(
+  t.struct({
+    name: t.String, // a required string
+    password: t.String, // an optional string
+    password_confirmation: t.String,
+    email: t.String
+  }),
+  samePasswords
+)
+
+Person.getValidationErrorMessage = function (value) {
+  if (!samePasswords(value)) {
+    return I18n.t('passwordMatch')
+  }
+}
 
 const options = {
   auto: 'placeholders',
-  fields: {}
-}
+  fields: {},
+  order: ['email', 'name', 'password', 'password_confirmation']
+} // optional rendering options (see documentation)
 
-class LoginScreen extends Component {
+class RegisterScreen extends Component {
   constructor (props) {
     super(props)
 
-    this.navigateToRegister = this.navigateToRegister.bind(this)
+    this.navigateToLogin = this.navigateToLogin.bind(this)
   }
 
   onSubmit () {
@@ -44,11 +61,28 @@ class LoginScreen extends Component {
     }
   }
 
-  navigateToRegister () {
-    this.props.navigation.navigate('RegisterScreen')
+  navigateToLogin () {
+    this.props.navigation.navigate('LoginScreen')
   }
 
   render () {
+    let name = {
+      placeholder: I18n.t('fullName'),
+      maxLength: 20
+    }
+
+    let password = {
+      placeholder: I18n.t('password'),
+      minLength: 6,
+      secureTextEntry: true
+    }
+
+    let confirmPassword = {
+      placeholder: I18n.t('confirmPassword'),
+      minLength: 6,
+      secureTextEntry: true
+    }
+
     let email = {
       placeholder: I18n.t('email'),
       autoCapitalize: 'none',
@@ -56,15 +90,10 @@ class LoginScreen extends Component {
       keyboardType: 'email-address'
     }
 
-    let password = {
-      placeholder: I18n.t('password'),
-      maxLength: 12,
-      secureTextEntry: true
-    }
-
-    options.fields['email'] = email
+    options.fields['username'] = name
     options.fields['password'] = password
-    const { navigate } = this.props.navigation
+    options.fields['password_confirmation'] = confirmPassword
+    options.fields['email'] = email
 
     return (
       <ScrollView style={[styles.container, { backgroundColor: 'white' }]}>
@@ -78,13 +107,13 @@ class LoginScreen extends Component {
           </View>
           <View style={styles.formContainer}>
             <Form ref="form" type={Person} options={options} />
-            <GradientButton text={I18n.t('login')} onPress={() => {}} />
+            <GradientButton text={I18n.t('signUp')} onPress={() => {}} />
             <Button
-              onPress={this.navigateToRegister}
+              onPress={this.navigateToLogin}
               textStyle={styles.buttonTextStyle}
               style={styles.linkButton}
             >
-              {I18n.t('signUp')}
+              {I18n.t('login')}
             </Button>
           </View>
         </KeyboardAvoidingView>
@@ -101,4 +130,4 @@ const mapDispatchToProps = dispatch => {
   return {}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterScreen)
