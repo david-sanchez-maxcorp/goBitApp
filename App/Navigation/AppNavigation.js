@@ -1,6 +1,7 @@
 import { StackNavigator } from "react-navigation";
 import WelcomeScreen from "../Containers/WelcomeScreen";
 import LaunchScreen from "../Containers/LaunchScreen";
+import LoginScreen from "../Containers/LoginScreen";
 
 import styles from "./Styles/NavigationStyles";
 
@@ -8,12 +9,13 @@ import styles from "./Styles/NavigationStyles";
 const PrimaryNav = StackNavigator(
   {
     WelcomeScreen: { screen: WelcomeScreen },
-    LaunchScreen: { screen: LaunchScreen }
+    LaunchScreen: { screen: LaunchScreen },
+    LoginScreen: { screen: LoginScreen }
   },
   {
     // Default config for all screens
     headerMode: "none",
-    initialRouteName: "WelcomeScreen",
+    initialRouteName: "LoginScreen",
     navigationOptions: {
       headerStyle: styles.header
     }
