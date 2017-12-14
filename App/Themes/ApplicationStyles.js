@@ -5,7 +5,8 @@ import Colors from './Colors'
 const ApplicationStyles = {
   screen: {
     container: {
-      flex: 1
+      flex: 1,
+      backgroundColor: '#F1F4F7'
     },
     logo: {
       height: 180,

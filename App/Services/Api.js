@@ -1,15 +1,11 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce'
 import Secrets from 'react-native-config'
-import { Platform } from 'react-native'
 
 let baseURL = Secrets.API_URL
 
 if (__DEV__) {
-  baseURL =
-    Platform.OS === 'ios'
-      ? 'http://localhost:3000/v1/'
-      : 'http://10.0.2.2:3000/v1/'
+  baseURL = 'http://192.168.0.11:3000/v1/'
 }
 
 const create = () => {

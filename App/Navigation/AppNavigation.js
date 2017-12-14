@@ -1,4 +1,5 @@
 import React from 'react'
+import { View } from 'react-native'
 import { Icon } from 'react-native-elements'
 import I18n from 'react-native-i18n'
 import {
@@ -64,8 +65,29 @@ const ProfileStackNavigator = StackNavigator(
   {
     UserScreen: {
       screen: ProfileScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerTitle: I18n.t('profile'),
+        headerRight: (
+          <View style={{ paddingRight: 10 }}>
+            <Icon
+              containerStyle={{
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+              color="black"
+              name="settings"
+              type="ionicons"
+              size={25}
+              onPress={() => navigation.navigate('SettingsScreen')}
+            />
+          </View>
+        )
+      })
+    },
+    SettingsScreen: {
+      screen: SettingsScreen,
       navigationOptions: {
-        headerTitle: I18n.t('profile')
+        headerTitle: I18n.t('settingsScreen-title')
       }
     }
   },
@@ -120,7 +142,7 @@ const MainTabNavigator = TabNavigator(
     },
     ProfileScreen: {
       screen: ProfileStackNavigator,
-      navigationOptions: {
+      navigationOptions: ({ navigation }) => ({
         tabBarIcon: ({ tintColor }) => (
           <Icon
             containerStyle={{ justifyContent: 'center', alignItems: 'center' }}
@@ -130,7 +152,7 @@ const MainTabNavigator = TabNavigator(
             type="feather"
           />
         )
-      }
+      })
     }
   },
   {
