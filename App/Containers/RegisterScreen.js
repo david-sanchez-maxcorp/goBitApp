@@ -10,10 +10,10 @@ import { connect } from 'react-redux'
 import t from 'tcomb-form-native'
 import I18n from 'react-native-i18n'
 import Button from 'apsl-react-native-button'
+import DebugConfig from '../Config/DebugConfig'
 import { Metrics, Images, Colors } from '../Themes/'
 import GradientButton from '../Components/GradientButton'
-// Add Actions - replace 'Your' with whatever your reducer is called :)
-// import YourActions from '../Redux/YourRedux'
+import RegisterActions from '../Redux/RegisterRedux'
 
 const Form = t.form.Form
 
@@ -49,14 +49,69 @@ const options = {
 class RegisterScreen extends Component {
   constructor (props) {
     super(props)
-
+    this.state = {
+      value: {
+        name: '',
+        password: '',
+        email: '',
+        confirmPassword: ''
+      }
+    }
+    this.onSubmit = this.onSubmit.bind(this)
+    this.onChange = this.onChange.bind(this)
+    this.renderError = this.renderError.bind(this)
     this.navigateToLogin = this.navigateToLogin.bind(this)
+  }
+
+  randomIntFromInterval (min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+
+  componentDidMount () {
+    if (DebugConfig.ezSignup) {
+      const randomNumber = this.randomIntFromInterval(0, 1000)
+      const testName = `test${randomNumber}`
+      this.props.registerRequest({
+        name: testName,
+        password: '123456',
+        email: `${testName}@gmail.com`,
+        confirmPassword: '123456'
+      })
+    }
   }
 
   onSubmit () {
     var value = this.refs.form.getValue()
     if (value) {
-      console.tron.log(value)
+      this.props.registerRequest(value)
+    }
+  }
+
+  onChange (value) {
+    this.setState({ value })
+  }
+
+  renderError () {
+    const { error } = this.props.registerState
+    if (error) {
+      let errorList = []
+      for (const key in error) {
+        let errorMessage = error[key][0]
+        switch (errorMessage) {
+          case 'has already been taken':
+            errorMessage = I18n.t('emailError')
+            break
+          case 'Tu password debe contener minimo 6 caracteres':
+            errorMessage = I18n.t('passwordLengthError')
+            break
+        }
+        errorList.push(
+          <Text style={styles.errorLabel} key={key}>
+            {errorMessage}
+          </Text>
+        )
+      }
+      return errorList
     }
   }
 
@@ -65,6 +120,8 @@ class RegisterScreen extends Component {
   }
 
   render () {
+    const { fetching } = this.props.registerState
+
     let name = {
       placeholder: I18n.t('fullName'),
       maxLength: 20
@@ -101,8 +158,13 @@ class RegisterScreen extends Component {
             <Image style={[styles.logo]} source={Images.asset16} />
           </View>
           <View style={styles.formContainer}>
+            {this.renderError()}
             <Form ref="form" type={Person} options={options} />
-            <GradientButton text={I18n.t('signUp')} onPress={() => {}} />
+            <GradientButton
+              isLoading={fetching}
+              text={I18n.t('signUp')}
+              onPress={this.onSubmit}
+            />
             <Button
               onPress={this.navigateToLogin}
               textStyle={styles.buttonTextStyle}
@@ -118,11 +180,15 @@ class RegisterScreen extends Component {
 }
 
 const mapStateToProps = state => {
-  return {}
+  return {
+    registerState: state.register
+  }
 }
 
 const mapDispatchToProps = dispatch => {
-  return {}
+  return {
+    registerRequest: user => dispatch(RegisterActions.registerRequest(user))
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RegisterScreen)

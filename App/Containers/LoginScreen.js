@@ -39,8 +39,8 @@ class LoginScreen extends Component {
   componentDidMount () {
     if (DebugConfig.ezLogin) {
       this.props.loginRequest({
-        email: 'deividsanchez96@gmail.com',
-        password: '1234567'
+        email: 'deividsanchez96@test.com',
+        password: '123456'
       })
     }
   }

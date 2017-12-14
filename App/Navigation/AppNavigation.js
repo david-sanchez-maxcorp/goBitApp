@@ -15,6 +15,7 @@ import HomeScreen from '../Containers/HomeScreen'
 import WelcomeScreen from '../Containers/WelcomeScreen'
 import LoginScreen from '../Containers/LoginScreen'
 import RegisterScreen from '../Containers/RegisterScreen'
+import SplashScreen from '../Containers/SplashScreen'
 import { Colors } from '../Themes'
 
 const HomeStackNavigator = StackNavigator(
@@ -177,6 +178,12 @@ const MainTabNavigator = TabNavigator(
 
 const AuthStack = StackNavigator(
   {
+    SplashScreen: {
+      screen: SplashScreen,
+      navigationOptions: ({ navigation }) => ({
+        header: null
+      })
+    },
     WelcomeScreen: {
       screen: WelcomeScreen,
       navigationOptions: ({ navigation }) => ({
@@ -203,7 +210,7 @@ const AuthStack = StackNavigator(
     }
   },
   {
-    initialRouteName: 'WelcomeScreen',
+    initialRouteName: 'SplashScreen',
     headerMode: 'main'
   }
 )

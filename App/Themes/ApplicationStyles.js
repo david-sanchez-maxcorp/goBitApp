@@ -22,6 +22,12 @@ const ApplicationStyles = {
     },
     linkButton: {
       borderWidth: 0
+    },
+    errorLabel: {
+      color: '#a94442',
+      fontSize: 17,
+      marginBottom: 7,
+      fontWeight: '400'
     }
   }
 }
