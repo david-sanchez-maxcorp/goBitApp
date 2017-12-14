@@ -3,7 +3,6 @@ import {
   ScrollView,
   Text,
   KeyboardAvoidingView,
-  StatusBar,
   View,
   Image
 } from 'react-native'
@@ -22,10 +21,6 @@ class WelcomeScreen extends Component {
         colors={['#66BB57', '#65BA88', '#62B9BA']}
         style={styles.container}
       >
-        <StatusBar
-          barStyle="light-content"
-          backgroundColor={Colors.secondaryColor}
-        />
         <View style={styles.welcomeLogo}>
           <Image style={[styles.logo]} source={Images.asset17} />
           <Text style={styles.sloganStyle}>{I18n.t('slogan')}</Text>

@@ -4,7 +4,6 @@ import {
   Text,
   KeyboardAvoidingView,
   Image,
-  StatusBar,
   ScrollView
 } from 'react-native'
 import { connect } from 'react-redux'
@@ -97,10 +96,6 @@ class RegisterScreen extends Component {
 
     return (
       <ScrollView style={[styles.container, { backgroundColor: 'white' }]}>
-        <StatusBar
-          barStyle="dark-content"
-          backgroundColor={Colors.statusBarColor}
-        />
         <KeyboardAvoidingView behavior="position">
           <View style={[styles.centered, { flex: 1 }]}>
             <Image style={[styles.logo]} source={Images.asset16} />

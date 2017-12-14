@@ -1,25 +1,211 @@
-import { StackNavigator } from 'react-navigation'
+import React from 'react'
+import { Icon } from 'react-native-elements'
+import I18n from 'react-native-i18n'
+import {
+  StackNavigator,
+  TabNavigator,
+  TabBarBottom,
+  NavigationActions
+} from 'react-navigation'
+import ProfileScreen from '../Containers/ProfileScreen'
+import SettingsScreen from '../Containers/SettingsScreen'
+import StatisticsScreen from '../Containers/StatisticsScreen'
+import WalletScreen from '../Containers/WalletScreen'
+import HomeScreen from '../Containers/HomeScreen'
 import WelcomeScreen from '../Containers/WelcomeScreen'
 import LoginScreen from '../Containers/LoginScreen'
 import RegisterScreen from '../Containers/RegisterScreen'
+import { Colors } from '../Themes'
 
-import styles from './Styles/NavigationStyles'
-
-// Manifest of possible screens
-const PrimaryNav = StackNavigator(
+const HomeStackNavigator = StackNavigator(
   {
-    WelcomeScreen: { screen: WelcomeScreen },
-    LoginScreen: { screen: LoginScreen },
-    RegisterScreen: { screen: RegisterScreen }
+    HomeScreen: {
+      screen: HomeScreen,
+      navigationOptions: {
+        headerTitle: 'GitPoint'
+      }
+    }
   },
   {
-    // Default config for all screens
-    headerMode: 'none',
-    initialRouteName: 'LoginScreen',
-    navigationOptions: {
-      headerStyle: styles.header
-    }
+    headerMode: 'screen'
   }
 )
 
-export default PrimaryNav
+const WalletStackNavigator = StackNavigator(
+  {
+    WalletScreen: {
+      screen: WalletScreen,
+      navigationOptions: {
+        headerTitle: 'GitPoint'
+      }
+    }
+  },
+  {
+    headerMode: 'screen'
+  }
+)
+
+const StatisticsStackNavigator = StackNavigator(
+  {
+    StatisticsScreen: {
+      screen: StatisticsScreen,
+      navigationOptions: {
+        headerTitle: 'GitPoint'
+      }
+    }
+  },
+  {
+    headerMode: 'screen'
+  }
+)
+
+const ProfileStackNavigator = StackNavigator(
+  {
+    UserScreen: {
+      screen: ProfileScreen,
+      navigationOptions: {
+        headerTitle: 'GitPoint'
+      }
+    }
+  },
+  {
+    headerMode: 'screen'
+  }
+)
+
+const MainTabNavigator = TabNavigator(
+  {
+    Home: {
+      screen: HomeStackNavigator,
+      navigationOptions: {
+        tabBarIcon: ({ tintColor }) => (
+          <Icon
+            containerStyle={{ justifyContent: 'center', alignItems: 'center' }}
+            color={tintColor}
+            name="tachometer"
+            type="font-awesome"
+            size={33}
+          />
+        )
+      }
+    },
+    WalletScreen: {
+      screen: WalletStackNavigator,
+      navigationOptions: {
+        tabBarIcon: ({ tintColor }) => (
+          <Icon
+            containerStyle={{ justifyContent: 'center', alignItems: 'center' }}
+            color={tintColor}
+            name="wallet"
+            type="simple-line-icon"
+            size={33}
+          />
+        )
+      }
+    },
+    StatisticsScreen: {
+      screen: StatisticsStackNavigator,
+      navigationOptions: {
+        tabBarIcon: ({ tintColor }) => (
+          <Icon
+            containerStyle={{ justifyContent: 'center', alignItems: 'center' }}
+            color={tintColor}
+            name="chart-line"
+            size={33}
+            type="material-community"
+          />
+        )
+      }
+    },
+    ProfileScreen: {
+      screen: ProfileStackNavigator,
+      navigationOptions: {
+        tabBarIcon: ({ tintColor }) => (
+          <Icon
+            containerStyle={{ justifyContent: 'center', alignItems: 'center' }}
+            color={tintColor}
+            name="user"
+            size={33}
+            type="feather"
+          />
+        )
+      }
+    }
+  },
+  {
+    lazy: true,
+    animationEnabled: false,
+    tabBarPosition: 'bottom',
+    tabBarOptions: {
+      showLabel: false,
+      activeTintColor: Colors.secondaryColor,
+      inactiveTintColor: Colors.grey,
+      style: {
+        backgroundColor: Colors.alabaster
+      }
+    },
+    tabBarComponent: ({ jumpToIndex, ...props }) => (
+      <TabBarBottom
+        {...props}
+        jumpToIndex={index => {
+          const { dispatch, state } = props.navigation
+
+          if (state.index === index && state.routes[index].routes.length > 1) {
+            const stackRouteName = [
+              'Events',
+              'Notifications',
+              'Search',
+              'MyProfile'
+            ][index]
+
+            dispatch(
+              NavigationActions.reset({
+                index: 0,
+                actions: [
+                  NavigationActions.navigate({ routeName: stackRouteName })
+                ]
+              })
+            )
+          } else {
+            jumpToIndex(index)
+          }
+        }}
+      />
+    )
+  }
+)
+
+const AuthStack = StackNavigator(
+  {
+    WelcomeScreen: {
+      screen: WelcomeScreen,
+      navigationOptions: ({ navigation }) => ({
+        header: null
+      })
+    },
+    LoginScreen: {
+      screen: LoginScreen,
+      navigationOptions: ({ navigation }) => ({
+        header: null
+      })
+    },
+    RegisterScreen: {
+      screen: RegisterScreen,
+      navigationOptions: ({ navigation }) => ({
+        header: null
+      })
+    },
+    Main: {
+      screen: MainTabNavigator,
+      navigationOptions: ({ navigation }) => ({
+        header: null
+      })
+    }
+  },
+  {
+    initialRouteName: 'WelcomeScreen',
+    headerMode: 'main'
+  }
+)
+
+export default AuthStack
