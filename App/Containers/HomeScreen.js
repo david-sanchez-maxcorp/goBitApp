@@ -1,6 +1,16 @@
 import React, { Component } from 'react'
-import { ScrollView, Text, KeyboardAvoidingView } from 'react-native'
+import {
+  ScrollView,
+  Text,
+  KeyboardAvoidingView,
+  View,
+  Alert,
+  Clipboard
+} from 'react-native'
 import { connect } from 'react-redux'
+import { Card, Button } from 'react-native-elements'
+import I18n from 'react-native-i18n'
+import QRCode from 'react-native-qrcode'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
@@ -8,25 +18,64 @@ import { connect } from 'react-redux'
 import styles from './Styles/HomeScreenStyle'
 
 class HomeScreen extends Component {
-  render () {
+  constructor(props) {
+    super(props)
+    this.state = {
+      walletAddress: '2MxQnKr1gb29rMneDXKWMXyxceYn9k7FocW'
+    }
+
+    this.writeToClipboard = this.writeToClipboard.bind(this)
+  }
+
+  writeToClipboard = async () => {
+    await Clipboard.setString(this.state.walletAddress)
+    Alert.alert(I18n.t('copied'), I18n.t('walletAddressCopied'))
+  }
+
+  render() {
     return (
       <ScrollView style={styles.container}>
-        <KeyboardAvoidingView behavior='position'>
-          <Text>HomeScreen</Text>
+        <KeyboardAvoidingView behavior="position">
+          <Card title={I18n.t('balance')} titleStyle={styles.title}>
+            <Text style={styles.mediumText}>{I18n.t('available')}</Text>
+            <Text style={styles.largeText}>0 USD ≈</Text>
+            <Text style={styles.smallText}>0.00000000 BTC</Text>
+          </Card>
+          <Card title={I18n.t('walletUpdatedTitle')} titleStyle={styles.title}>
+            {this.state.walletAddress !== null && (
+              <View style={styles.centered}>
+                <QRCode
+                  value={this.state.walletAddress}
+                  size={200}
+                  bgColor="black"
+                  fgColor="white"
+                />
+              </View>
+            )}
+          </Card>
+          <Card containerStyle={{ alignItems: 'center' }}>
+            <Text style={styles.walletAddress}>{this.state.walletAddress}</Text>
+          </Card>
+          <Button
+            icon={{
+              name: 'copy',
+              type: 'font-awesome'
+            }}
+            title={I18n.t('copyWalletAddress')}
+            onPress={this.writeToClipboard}
+          />
         </KeyboardAvoidingView>
       </ScrollView>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-  }
+const mapStateToProps = state => {
+  return {}
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-  }
+const mapDispatchToProps = dispatch => {
+  return {}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen)
