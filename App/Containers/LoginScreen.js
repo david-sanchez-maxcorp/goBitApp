@@ -11,18 +11,17 @@ import { connect } from 'react-redux'
 import t from 'tcomb-form-native'
 import I18n from 'react-native-i18n'
 import Button from 'apsl-react-native-button'
+import LoginActions from '../Redux/LoginRedux'
 import { Metrics, Images, Colors } from '../Themes/'
 import GradientButton from '../Components/GradientButton'
-// Add Actions - replace 'Your' with whatever your reducer is called :)
-// import YourActions from '../Redux/YourRedux'
+import DebugConfig from '../Config/DebugConfig'
+import styles from './Styles/LoginScreenStyle'
 
 const Form = t.form.Form
 
-import styles from './Styles/LoginScreenStyle'
-
 const Person = t.struct({
-  email: t.String, // a required string
-  password: t.String // an optional string
+  email: t.String,
+  password: t.String
 })
 
 const options = {
@@ -35,12 +34,22 @@ class LoginScreen extends Component {
     super(props)
 
     this.navigateToRegister = this.navigateToRegister.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
+  }
+
+  componentDidMount () {
+    if (DebugConfig.ezLogin) {
+      this.props.loginRequest({
+        email: 'deividsanchez96@gmail.com',
+        password: '1234567'
+      })
+    }
   }
 
   onSubmit () {
     var value = this.refs.form.getValue()
     if (value) {
-      console.tron.log(value)
+      this.props.loginRequest(value)
     }
   }
 
@@ -64,7 +73,8 @@ class LoginScreen extends Component {
 
     options.fields['email'] = email
     options.fields['password'] = password
-    const { navigate } = this.props.navigation
+
+    const { fetching } = this.props.loginState
 
     return (
       <ScrollView style={[styles.container, { backgroundColor: 'white' }]}>
@@ -73,12 +83,16 @@ class LoginScreen extends Component {
           backgroundColor={Colors.statusBarColor}
         />
         <KeyboardAvoidingView behavior="position">
-          <View style={[styles.centered, { flex: 1 }]}>
+          <View style={styles.centered}>
             <Image style={[styles.logo]} source={Images.asset16} />
           </View>
           <View style={styles.formContainer}>
             <Form ref="form" type={Person} options={options} />
-            <GradientButton text={I18n.t('login')} onPress={() => {}} />
+            <GradientButton
+              text={I18n.t('login')}
+              onPress={this.onSubmit}
+              isLoading={fetching}
+            />
             <Button
               onPress={this.navigateToRegister}
               textStyle={styles.buttonTextStyle}
@@ -94,11 +108,15 @@ class LoginScreen extends Component {
 }
 
 const mapStateToProps = state => {
-  return {}
+  return {
+    loginState: state.login
+  }
 }
 
 const mapDispatchToProps = dispatch => {
-  return {}
+  return {
+    loginRequest: user => dispatch(LoginActions.loginRequest(user))
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen)

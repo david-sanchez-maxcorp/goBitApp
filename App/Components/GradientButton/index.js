@@ -14,15 +14,18 @@ import Button from 'apsl-react-native-button'
 export default class index extends Component {
   static propTypes = {
     text: PropTypes.string.isRequired,
-    onPress: PropTypes.func.isRequired
+    onPress: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool
   }
 
   render() {
-    const { onPress, text } = this.props
-    const Touchable =
-      Platform.OS === 'android' ? TouchableNativeFeedback : TouchableOpacity
+    const { onPress, text, isLoading } = this.props
     return (
-      <Button onPress={onPress} style={styles.buttonStyle}>
+      <Button
+        onPress={onPress}
+        style={styles.buttonStyle}
+        isLoading={isLoading}
+      >
         <LinearGradient
           colors={['#62B9BA', '#65BA88', '#66BB57']}
           start={{ x: 0, y: 1 }}

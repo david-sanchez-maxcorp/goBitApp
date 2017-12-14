@@ -5,7 +5,7 @@ import Secrets from 'react-native-config'
 let baseURL = Secrets.API_URL
 
 if (__DEV__) {
-  baseURL = 'http://10.0.2.2:3000/v1/'
+  baseURL = 'http://localhost:3000/v1/'
 }
 
 const create = () => {
