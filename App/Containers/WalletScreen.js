@@ -3,7 +3,7 @@ import { ScrollView, Text, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
 import t from 'tcomb-form-native'
 import I18n from 'react-native-i18n'
-import { Card, Button } from 'react-native-elements'
+import { Card, Button, ButtonGroup } from 'react-native-elements'
 
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -42,14 +42,28 @@ class WalletScreen extends Component {
       value: {
         to: null,
         amount: null
-      }
+      },
+      selectedIndex: 0
     }
+
+    this.updateIndex = this.updateIndex.bind(this)
+  }
+
+  updateIndex (selectedIndex) {
+    this.setState({ selectedIndex })
   }
 
   render () {
+    const buttons = [I18n.t('bitcoin')]
+
     return (
       <ScrollView style={styles.container}>
         <KeyboardAvoidingView behavior="position">
+          <ButtonGroup
+            onPress={this.updateIndex}
+            selectedIndex={this.state.selectedIndex}
+            buttons={buttons}
+          />
           <Card title={I18n.t('withdraw-pay')} titleStyle={styles.title}>
             <Form
               ref="form"
@@ -58,12 +72,13 @@ class WalletScreen extends Component {
               value={this.state.value}
             />
             <Button
+              containerViewStyle={styles.scanButton}
               icon={{ name: 'qrcode', type: 'font-awesome' }}
               title={I18n.t('scanQrCode')}
               backgroundColor="#62B9BA"
             />
             <Button
-              containerViewStyle={{ marginTop: 10 }}
+              containerViewStyle={styles.sendButton}
               title={I18n.t('send')}
               backgroundColor="#68B67C"
             />

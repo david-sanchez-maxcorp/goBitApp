@@ -79,5 +79,10 @@
   "statistics": "Estadisticas",
   "wallet": "Billetera",
   "profile": "Perfil",
-  "withdraw-pay": "Retirar / Pagar"
+  "withdraw-pay": "Retirar / Pagar",
+  "bitcoin": "Bitcoin",
+  "litecoin": "Litecoin",
+  "incomes": "Ingresos",
+  "withdrawals": "Retiros",
+  "comissions": "Comisiones"
 }

@@ -79,5 +79,10 @@
   "statistics": "Statistics",
   "wallet": "Wallet",
   "profile": "Profile",
-  "withdraw-pay": "Withdraw / Pay"
+  "withdraw-pay": "Withdraw / Pay",
+  "bitcoin": "Bitcoin",
+  "litecoin": "Litecoin",
+  "incomes": "Incomes",
+  "withdrawals": "Withdrawals",
+  "comissions": "Comissions"
 }

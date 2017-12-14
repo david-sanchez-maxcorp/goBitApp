@@ -8,6 +8,9 @@ import {
   TabBarBottom,
   NavigationActions
 } from 'react-navigation'
+import ComissionsScreen from '../Containers/ComissionsScreen'
+import WithdrawalsScreen from '../Containers/WithdrawalsScreen'
+import IncomesScreen from '../Containers/IncomesScreen'
 import ProfileScreen from '../Containers/ProfileScreen'
 import SettingsScreen from '../Containers/SettingsScreen'
 import StatisticsScreen from '../Containers/StatisticsScreen'
@@ -53,6 +56,24 @@ const StatisticsStackNavigator = StackNavigator(
       screen: StatisticsScreen,
       navigationOptions: {
         headerTitle: I18n.t('statistics')
+      }
+    },
+    IncomesScreen: {
+      screen: IncomesScreen,
+      navigationOptions: {
+        headerTitle: I18n.t('incomes')
+      }
+    },
+    WithdrawalsScreen: {
+      screen: WithdrawalsScreen,
+      navigationOptions: {
+        headerTitle: I18n.t('withdrawals')
+      }
+    },
+    ComissionsScreen: {
+      screen: ComissionsScreen,
+      navigationOptions: {
+        headerTitle: I18n.t('comissions')
       }
     }
   },
@@ -156,6 +177,7 @@ const MainTabNavigator = TabNavigator(
     }
   },
   {
+    initialRouteName: 'StatisticsScreen',
     lazy: true,
     animationEnabled: false,
     tabBarPosition: 'bottom',
@@ -232,7 +254,7 @@ const AuthStack = StackNavigator(
     }
   },
   {
-    initialRouteName: 'SplashScreen',
+    initialRouteName: 'Main',
     headerMode: 'main'
   }
 )

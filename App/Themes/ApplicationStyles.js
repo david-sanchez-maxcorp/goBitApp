@@ -2,6 +2,7 @@ import Fonts from './Fonts'
 import Metrics from './Metrics'
 import Colors from './Colors'
 import Normalize from '../Lib/normalize-text'
+import { Platform } from 'react-native'
 
 const ApplicationStyles = {
   screen: {

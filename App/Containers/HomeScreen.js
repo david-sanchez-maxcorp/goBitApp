@@ -8,7 +8,7 @@ import {
   Clipboard
 } from 'react-native'
 import { connect } from 'react-redux'
-import { Card, Button } from 'react-native-elements'
+import { Card, Button, ButtonGroup } from 'react-native-elements'
 import I18n from 'react-native-i18n'
 import QRCode from 'react-native-qrcode'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
@@ -21,10 +21,16 @@ class HomeScreen extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      walletAddress: '2MxQnKr1gb29rMneDXKWMXyxceYn9k7FocW'
+      walletAddress: '2MxQnKr1gb29rMneDXKWMXyxceYn9k7FocW',
+      selectedIndex: 0
     }
 
     this.writeToClipboard = this.writeToClipboard.bind(this)
+    this.updateIndex = this.updateIndex.bind(this)
+  }
+
+  updateIndex(selectedIndex) {
+    this.setState({ selectedIndex })
   }
 
   writeToClipboard = async () => {
@@ -33,9 +39,15 @@ class HomeScreen extends Component {
   }
 
   render() {
+    const buttons = [I18n.t('bitcoin')]
     return (
       <ScrollView style={styles.container}>
         <KeyboardAvoidingView behavior="position">
+          <ButtonGroup
+            onPress={this.updateIndex}
+            selectedIndex={this.state.selectedIndex}
+            buttons={buttons}
+          />
           <Card title={I18n.t('balance')} titleStyle={styles.title}>
             <Text style={styles.mediumText}>{I18n.t('available')}</Text>
             <Text style={styles.largeText}>0 USD ≈</Text>
