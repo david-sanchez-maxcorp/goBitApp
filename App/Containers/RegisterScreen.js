@@ -10,6 +10,7 @@ import { connect } from 'react-redux'
 import t from 'tcomb-form-native'
 import I18n from 'react-native-i18n'
 import Button from 'apsl-react-native-button'
+import OverLaySpinner from '../Components/OverlaySpinner'
 import DebugConfig from '../Config/DebugConfig'
 import { Metrics, Images, Colors } from '../Themes/'
 import GradientButton from '../Components/GradientButton'
@@ -71,12 +72,18 @@ class RegisterScreen extends Component {
     if (DebugConfig.ezSignup) {
       const randomNumber = this.randomIntFromInterval(0, 1000)
       const testName = `test${randomNumber}`
-      this.props.registerRequest({
-        name: testName,
-        password: '123456',
-        email: `${testName}@gmail.com`,
-        confirmPassword: '123456'
-      })
+      this.setState(
+        {
+          value: {
+            name: testName,
+            password: '123456',
+            email: `${testName}@gmail.com`,
+            confirmPassword: '123456',
+            password_confirmation: '123456'
+          }
+        },
+        this.onSubmit
+      )
     }
   }
 
@@ -153,13 +160,20 @@ class RegisterScreen extends Component {
 
     return (
       <ScrollView style={[styles.container, { backgroundColor: 'white' }]}>
+        <OverLaySpinner visible={fetching} />
         <KeyboardAvoidingView behavior="position">
           <View style={[styles.centered, { flex: 1 }]}>
             <Image style={[styles.logo]} source={Images.asset16} />
           </View>
           <View style={styles.formContainer}>
             {this.renderError()}
-            <Form ref="form" type={Person} options={options} />
+            <Form
+              ref="form"
+              type={Person}
+              options={options}
+              value={this.state.value}
+              onChange={this.onChange}
+            />
             <GradientButton
               isLoading={fetching}
               text={I18n.t('signUp')}
