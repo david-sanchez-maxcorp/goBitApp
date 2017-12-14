@@ -23,7 +23,7 @@ const HomeStackNavigator = StackNavigator(
     HomeScreen: {
       screen: HomeScreen,
       navigationOptions: {
-        headerTitle: 'GitPoint'
+        headerTitle: I18n.t('home')
       }
     }
   },
@@ -37,7 +37,7 @@ const WalletStackNavigator = StackNavigator(
     WalletScreen: {
       screen: WalletScreen,
       navigationOptions: {
-        headerTitle: 'GitPoint'
+        headerTitle: I18n.t('wallet')
       }
     }
   },
@@ -51,7 +51,7 @@ const StatisticsStackNavigator = StackNavigator(
     StatisticsScreen: {
       screen: StatisticsScreen,
       navigationOptions: {
-        headerTitle: 'GitPoint'
+        headerTitle: I18n.t('statistics')
       }
     }
   },
@@ -65,7 +65,7 @@ const ProfileStackNavigator = StackNavigator(
     UserScreen: {
       screen: ProfileScreen,
       navigationOptions: {
-        headerTitle: 'GitPoint'
+        headerTitle: I18n.t('profile')
       }
     }
   },

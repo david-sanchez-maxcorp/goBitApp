@@ -10,7 +10,7 @@ export function * postLogin (api, action) {
   // success?
   if (response.ok) {
     yield put(LoginActions.loginSuccess(response.data))
-    yield put(NavigationActions.navigate({ routeName: 'Drawer' }))
+    yield put(NavigationActions.navigate({ routeName: 'Main' }))
   } else {
     yield put(LoginActions.loginFailure())
   }

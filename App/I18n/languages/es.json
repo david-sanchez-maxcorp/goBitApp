@@ -65,7 +65,6 @@
   "emailError": "Direccion de correo en uso",
   "balance": "Saldo",
   "available": "Disponible",
-  "wallet": "Wallet",
   "copyWalletAddress": "Copiar direccion de wallet",
   "walletAddressCopied": "Direccion de wallet copiada al portapapeles",
   "scanQrCode": "Escanear codigo QR",
@@ -75,5 +74,9 @@
   "walletUpdatedDescription": "Actualizada mediante el escaner",
   "noTransactionsTitle": "Sin Transacciones",
   "noTransactionsDescription":
-    "Si envias o recibes BTC, van a ser listadas aqui"
+    "Si envias o recibes BTC, van a ser listadas aqui",
+  "home": "Inicio",
+  "statistics": "Estadisticas",
+  "wallet": "Billetera",
+  "profile": "Perfil"
 }

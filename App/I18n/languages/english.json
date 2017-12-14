@@ -65,7 +65,6 @@
   "emailError": "Email address taken",
   "balance": "Balance",
   "available": "Available",
-  "wallet": "Wallet",
   "copyWalletAddress": "Copy wallet address",
   "walletAddressCopied": "Wallet address copied to clipboard",
   "scanQrCode": "Scan QR Code",
@@ -75,5 +74,9 @@
   "walletUpdatedDescription": "Updated via scanner",
   "noTransactionsTitle": "No Transactions",
   "noTransactionsDescription":
-    "If you send or receive BTC, they will be shown here"
+    "If you send or receive BTC, they will be shown here",
+  "home": "Home",
+  "statistics": "Statistics",
+  "wallet": "Wallet",
+  "profile": "Profile"
 }

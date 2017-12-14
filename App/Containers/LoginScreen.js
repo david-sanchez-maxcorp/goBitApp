@@ -10,6 +10,7 @@ import { connect } from 'react-redux'
 import t from 'tcomb-form-native'
 import I18n from 'react-native-i18n'
 import Button from 'apsl-react-native-button'
+import Spinner from 'react-native-loading-spinner-overlay'
 import LoginActions from '../Redux/LoginRedux'
 import { Metrics, Images, Colors } from '../Themes/'
 import GradientButton from '../Components/GradientButton'
@@ -31,7 +32,6 @@ const options = {
 class LoginScreen extends Component {
   constructor (props) {
     super(props)
-
     this.navigateToRegister = this.navigateToRegister.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
@@ -40,7 +40,7 @@ class LoginScreen extends Component {
     if (DebugConfig.ezLogin) {
       this.props.loginRequest({
         email: 'deividsanchez96@test.com',
-        password: '123456'
+        password: '1234567'
       })
     }
   }
@@ -73,15 +73,19 @@ class LoginScreen extends Component {
     options.fields['email'] = email
     options.fields['password'] = password
 
-    const { fetching } = this.props.loginState
+    const { fetching, error } = this.props.loginState
 
     return (
       <ScrollView style={[styles.container, { backgroundColor: 'white' }]}>
+        <Spinner visible={fetching} />
         <KeyboardAvoidingView behavior="position">
           <View style={styles.centered}>
             <Image style={[styles.logo]} source={Images.asset16} />
           </View>
           <View style={styles.formContainer}>
+            {error && (
+              <Text style={styles.errorLabel}>{I18n.t('loginError')}</Text>
+            )}
             <Form ref="form" type={Person} options={options} />
             <GradientButton
               text={I18n.t('login')}
