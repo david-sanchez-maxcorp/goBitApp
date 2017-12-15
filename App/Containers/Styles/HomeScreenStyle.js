@@ -5,7 +5,7 @@ export default StyleSheet.create({
   ...ApplicationStyles.screen,
   ...ApplicationStyles.fonts,
   copyButton: {
-    marginRight: 15,
-    marginLeft: 15
+    marginRight: 0,
+    marginLeft: 0
   }
 })

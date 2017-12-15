@@ -50,35 +50,33 @@ class ProfileScreen extends Component {
   render () {
     return (
       <ScrollView style={styles.container}>
-        <KeyboardAvoidingView behavior="position">
-          <Card title="David Camilo" titleStyle={styles.title}>
-            <View style={styles.profile}>
-              <Image source={this.getUserUri()} style={styles.avatar} />
-            </View>
-          </Card>
-          <Button
-            containerViewStyle={styles.outerButton}
-            title={I18n.t('uploadImage')}
-            backgroundColor="#68B67C"
-          />
-          <Card title={I18n.t('userInformation')} titleStyle={styles.title}>
-            <Form ref="form" type={Person} value={this.state.value} />
-          </Card>
-          <Button
-            containerViewStyle={styles.outerButton}
-            title={I18n.t('updateData')}
-            backgroundColor="#68B67C"
-          />
+        <Card title="David Camilo" titleStyle={styles.title}>
+          <View style={styles.profile}>
+            <Image source={this.getUserUri()} style={styles.avatar} />
+          </View>
+        </Card>
+        <Button
+          containerViewStyle={styles.outerButton}
+          title={I18n.t('uploadImage')}
+          backgroundColor="#68B67C"
+        />
+        <Card title={I18n.t('userInformation')} titleStyle={styles.title}>
+          <Form ref="form" type={Person} value={this.state.value} />
+        </Card>
+        <Button
+          containerViewStyle={styles.outerButton}
+          title={I18n.t('updateData')}
+          backgroundColor="#68B67C"
+        />
 
-          <Card title={I18n.t('changePassword')} titleStyle={styles.title}>
-            <Form ref="form" type={ChangePassword} value={this.state.value} />
-          </Card>
-          <Button
-            containerViewStyle={styles.outerButton}
-            title={I18n.t('updatePassword')}
-            backgroundColor="#68B67C"
-          />
-        </KeyboardAvoidingView>
+        <Card title={I18n.t('changePassword')} titleStyle={styles.title}>
+          <Form ref="form" type={ChangePassword} value={this.state.value} />
+        </Card>
+        <Button
+          containerViewStyle={styles.outerButton}
+          title={I18n.t('updatePassword')}
+          backgroundColor="#68B67C"
+        />
       </ScrollView>
     )
   }

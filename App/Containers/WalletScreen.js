@@ -3,7 +3,7 @@ import { ScrollView, Text, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
 import t from 'tcomb-form-native'
 import I18n from 'react-native-i18n'
-import { Card, Button, ButtonGroup } from 'react-native-elements'
+import { Card, Button } from 'react-native-elements'
 
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -42,15 +42,8 @@ class WalletScreen extends Component {
       value: {
         to: null,
         amount: null
-      },
-      selectedIndex: 0
+      }
     }
-
-    this.updateIndex = this.updateIndex.bind(this)
-  }
-
-  updateIndex (selectedIndex) {
-    this.setState({ selectedIndex })
   }
 
   render () {
@@ -59,12 +52,6 @@ class WalletScreen extends Component {
     return (
       <ScrollView style={styles.container}>
         <KeyboardAvoidingView behavior="position">
-          <ButtonGroup
-            onPress={this.updateIndex}
-            selectedIndex={this.state.selectedIndex}
-            buttons={buttons}
-            containerStyle={styles.buttonGroupContainer}
-          />
           <Card title={I18n.t('withdraw-pay')} titleStyle={styles.title}>
             <Form
               ref="form"

@@ -39,8 +39,7 @@ const ApplicationStyles = {
     innerButton: {
       marginRight: 0,
       marginLeft: 0
-    },
-    buttonGroupContainer: { marginTop: 15 }
+    }
   },
   fonts: {
     smallText: {
@@ -66,7 +65,8 @@ const ApplicationStyles = {
     walletAddress: {
       ...Fonts.FontMaker({ weight: 'Regular' }),
       fontSize: Normalize(Fonts.size.small),
-      color: Colors.textBold
+      color: Colors.textBold,
+      marginTop: 10
     }
   }
 }

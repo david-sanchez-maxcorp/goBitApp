@@ -127,7 +127,7 @@ const ProfileStackNavigator = StackNavigator(
     }
   },
   {
-    initialRouteName: 'AboutScreen',
+    initialRouteName: 'UserScreen',
     headerMode: 'screen'
   }
 )
@@ -192,7 +192,7 @@ const MainTabNavigator = TabNavigator(
     }
   },
   {
-    initialRouteName: 'ProfileScreen',
+    initialRouteName: 'Home',
     lazy: true,
     animationEnabled: false,
     tabBarPosition: 'bottom',
@@ -269,7 +269,7 @@ const AuthStack = StackNavigator(
     }
   },
   {
-    initialRouteName: 'Main',
+    initialRouteName: 'LoginScreen',
     headerMode: 'main'
   }
 )

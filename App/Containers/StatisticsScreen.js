@@ -1,12 +1,6 @@
 import React, { Component } from 'react'
 import { ScrollView, Text, KeyboardAvoidingView, View } from 'react-native'
-import {
-  Card,
-  Button,
-  ButtonGroup,
-  List,
-  ListItem
-} from 'react-native-elements'
+import { Card, Button, List, ListItem } from 'react-native-elements'
 import { connect } from 'react-redux'
 import I18n from 'react-native-i18n'
 
@@ -19,11 +13,7 @@ import styles from './Styles/StatisticsScreenStyle'
 class StatisticsScreen extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      selectedIndex: 0
-    }
 
-    this.updateIndex = this.updateIndex.bind(this)
     this.navigateToIncomes = this.navigateToIncomes.bind(this)
     this.navigateToWithdrawals = this.navigateToWithdrawals.bind(this)
     this.navigateToComissions = this.navigateToComissions.bind(this)
@@ -41,31 +31,25 @@ class StatisticsScreen extends Component {
     this.props.navigation.navigate('ComissionsScreen')
   }
 
-  updateIndex (selectedIndex) {
-    this.setState({ selectedIndex })
-  }
   render () {
     const buttons = [I18n.t('bitcoin')]
 
     return (
       <ScrollView style={styles.container}>
         <KeyboardAvoidingView behavior="position">
-          <ButtonGroup
-            onPress={this.updateIndex}
-            selectedIndex={this.state.selectedIndex}
-            buttons={buttons}
-            containerStyle={styles.buttonGroupContainer}
-          />
           <List>
             <ListItem
+              leftIcon={{ name: 'download', type: 'feather' }}
               title={I18n.t('incomes')}
               onPress={this.navigateToIncomes}
             />
             <ListItem
+              leftIcon={{ name: 'upload', type: 'feather' }}
               title={I18n.t('withdrawals')}
               onPress={this.navigateToWithdrawals}
             />
             <ListItem
+              leftIcon={{ name: 'dollar-bill', type: 'foundation' }}
               title={I18n.t('comissions')}
               onPress={this.navigateToComissions}
             />

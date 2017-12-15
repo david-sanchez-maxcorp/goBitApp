@@ -6,12 +6,16 @@ import API from '../Services/Api'
 import { StartupTypes } from '../Redux/StartupRedux'
 import { LoginTypes } from '../Redux/LoginRedux'
 import { RegisterTypes } from '../Redux/RegisterRedux'
+import { BalanceTypes } from '../Redux/BalanceRedux'
+import { WalletTypes } from '../Redux/WalletRedux'
 
 /* ------------- Sagas ------------- */
 
 import { startup } from './StartupSagas'
 import { postLogin } from './LoginSagas'
 import { postRegister } from './RegisterSagas'
+import { postBalance } from './BalanceSagas'
+import { getWallet } from './WalletSagas'
 
 /* ------------- API ------------- */
 
@@ -27,6 +31,8 @@ export default function * root () {
     // some sagas only receive an action
     takeLatest(StartupTypes.STARTUP, startup),
     takeLatest(LoginTypes.LOGIN_REQUEST, postLogin, api),
-    takeLatest(RegisterTypes.REGISTER_REQUEST, postRegister, api)
+    takeLatest(RegisterTypes.REGISTER_REQUEST, postRegister, api),
+    takeLatest(BalanceTypes.BALANCE_REQUEST, postBalance, api),
+    takeLatest(WalletTypes.WALLET_REQUEST, getWallet, api)
   ])
 }

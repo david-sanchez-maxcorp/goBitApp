@@ -1,13 +1,7 @@
 import React, { Component } from 'react'
 import { ScrollView, Text, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
-import {
-  Card,
-  Button,
-  ButtonGroup,
-  List,
-  ListItem
-} from 'react-native-elements'
+import { Card, Button, List, ListItem } from 'react-native-elements'
 import I18n from 'react-native-i18n'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
