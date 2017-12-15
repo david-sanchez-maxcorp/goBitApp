@@ -96,5 +96,9 @@
   "aboutGobit": "Acerca de Gobit",
   "signOut": "Cerrar sesion",
   "noIncomes": "Sin Ingresos",
-  "incomesParagraph": "Los ingresos van a ser listados aqui"
+  "incomesParagraph": "Los ingresos van a ser listados aqui",
+  "noWithdrawals": "Sin Retiros",
+  "withdrawalsParagraph": "Los ingresos van a ser listados aqui",
+  "noComissions": "Sin Comisiones",
+  "comissionsParagraph": "Las comisiones van a ser listadas aqui"
 }

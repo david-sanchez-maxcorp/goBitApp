@@ -80,7 +80,7 @@ const StatisticsStackNavigator = StackNavigator(
     }
   },
   {
-    initialRouteName: 'IncomesScreen',
+    initialRouteName: 'StatisticsScreen',
     headerMode: 'screen'
   }
 )
@@ -213,10 +213,10 @@ const MainTabNavigator = TabNavigator(
 
           if (state.index === index && state.routes[index].routes.length > 1) {
             const stackRouteName = [
-              'Events',
-              'Notifications',
-              'Search',
-              'MyProfile'
+              'HomeScreen',
+              'WalletScreen',
+              'StatisticsScreen',
+              'StatisticsScreen'
             ][index]
 
             dispatch(

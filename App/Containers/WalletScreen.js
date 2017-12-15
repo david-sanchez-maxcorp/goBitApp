@@ -63,7 +63,6 @@ class WalletScreen extends Component {
               containerViewStyle={styles.scanButton}
               icon={{ name: 'qrcode', type: 'font-awesome' }}
               title={I18n.t('scanQrCode')}
-              backgroundColor="#62B9BA"
             />
             <Button
               containerViewStyle={styles.sendButton}

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { ScrollView, Text, FlatList, View, RefreshControl } from 'react-native'
 import { connect } from 'react-redux'
 import I18n from 'react-native-i18n'
+import { ListItem, List } from 'react-native-elements'
 import NoItem from '../Components/NoItem'
 import IncomeActions from '../Redux/IncomeRedux'
 import OverlaySpinner from '../Components/OverlaySpinner'
@@ -10,10 +11,19 @@ import OverlaySpinner from '../Components/OverlaySpinner'
 import styles from './Styles/IncomesScreenStyle'
 
 class IncomesScreen extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
-      refreshing: false
+      refreshing: false,
+      dataObjects: [
+        {
+          asigned_date: '12min ago',
+          value: '1.512323',
+          currency_name: 'BTC',
+          comission_type: '',
+          comission_status: 'normal'
+        }
+      ]
     }
     this.getUserInfo = this.getUserInfo.bind(this)
     this.renderList = this.renderList.bind(this)
@@ -21,15 +31,17 @@ class IncomesScreen extends Component {
     this.renderEmpty = this.renderEmpty.bind(this)
   }
 
-  componentDidMount () {
+  keyExtractor = (item, index) => index
+
+  componentDidMount() {
     this.getUserInfo()
   }
 
-  onRefresh () {
+  onRefresh() {
     this.getUserInfo()
   }
 
-  getUserInfo () {
+  getUserInfo() {
     this.setState({ refreshing: true })
 
     const { access_token } = this.props.loginState.payload
@@ -39,11 +51,20 @@ class IncomesScreen extends Component {
     })
   }
 
-  renderRow ({ item, index }) {
-    return <Text>Hello</Text>
+  renderRow({ item, index }) {
+    return (
+      <ListItem
+        roundAvatar
+        key={index}
+        title={item.comission_status}
+        subtitle={item.asigned_date}
+        rightTitle={`${item.value} ${item.currency_name}`}
+        containerStyle={styles.listItemStyle}
+        hideChevron
+      />
+    )
   }
-
-  renderEmpty () {
+  renderEmpty() {
     return (
       <NoItem
         iconName="download"
@@ -54,7 +75,7 @@ class IncomesScreen extends Component {
     )
   }
 
-  renderList () {
+  renderList() {
     const { payload } = this.props.incomeState
 
     return (
@@ -63,11 +84,12 @@ class IncomesScreen extends Component {
         renderItem={this.renderRow}
         initialNumToRender={20}
         ListEmptyComponent={this.renderEmpty}
+        keyExtractor={this.keyExtractor}
       />
     )
   }
 
-  render () {
+  render() {
     return (
       <ScrollView
         refreshControl={

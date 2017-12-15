@@ -9,6 +9,8 @@ import { RegisterTypes } from '../Redux/RegisterRedux'
 import { BalanceTypes } from '../Redux/BalanceRedux'
 import { WalletTypes } from '../Redux/WalletRedux'
 import { IncomeTypes } from '../Redux/IncomeRedux'
+import { WithdrawalTypes } from '../Redux/WithdrawalRedux'
+import { ComissionTypes } from '../Redux/ComissionRedux'
 
 /* ------------- Sagas ------------- */
 
@@ -18,6 +20,8 @@ import { postRegister } from './RegisterSagas'
 import { postBalance } from './BalanceSagas'
 import { getWallet } from './WalletSagas'
 import { postIncome } from './IncomeSagas'
+import { postWithdrawal } from './WithdrawalSagas'
+import { postComission } from './ComissionSagas'
 
 /* ------------- API ------------- */
 
@@ -36,6 +40,8 @@ export default function * root () {
     takeLatest(RegisterTypes.REGISTER_REQUEST, postRegister, api),
     takeLatest(BalanceTypes.BALANCE_REQUEST, postBalance, api),
     takeLatest(WalletTypes.WALLET_REQUEST, getWallet, api),
-    takeLatest(IncomeTypes.INCOME_REQUEST, postIncome, api)
+    takeLatest(IncomeTypes.INCOME_REQUEST, postIncome, api),
+    takeLatest(WithdrawalTypes.WITHDRAWAL_REQUEST, postWithdrawal, api),
+    takeLatest(ComissionTypes.COMISSION_REQUEST, postComission, api)
   ])
 }

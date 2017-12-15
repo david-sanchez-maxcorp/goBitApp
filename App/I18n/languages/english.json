@@ -96,5 +96,9 @@
   "aboutGobit": "About Gobit",
   "signOut": "Sign Out",
   "noIncomes": "No Incomes",
-  "incomesParagraph": "Incomes will be shown here"
+  "incomesParagraph": "Incomes will be shown here",
+  "noWithdrawals": "No Withdrawals",
+  "withdrawalsParagraph": "Withdrawals will be shown here",
+  "noComissions": "No Comissions",
+  "comissionsParagraph": "Comissions will be shown here"
 }

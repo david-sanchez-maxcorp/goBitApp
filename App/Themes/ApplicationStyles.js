@@ -39,6 +39,9 @@ const ApplicationStyles = {
     innerButton: {
       marginRight: 0,
       marginLeft: 0
+    },
+    listItemStyle: {
+      backgroundColor: '#FFF'
     }
   },
   fonts: {

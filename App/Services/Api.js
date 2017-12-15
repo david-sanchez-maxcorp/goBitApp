@@ -31,13 +31,21 @@ const create = () => {
   const postIncome = token =>
     api.post('stats/deposit', {}, { headers: { token } })
 
+  const postWithdrawal = token =>
+    api.post('payments/user', {}, { headers: { token } })
+
+  const postComission = token =>
+    api.post('stats/comissions', {}, { headers: { token } })
+
   return {
     postlogin,
     postRegister,
     postSummaryUser,
     getWallet,
     postWallet,
-    postIncome
+    postIncome,
+    postWithdrawal,
+    postComission
   }
 }
 
