@@ -8,6 +8,8 @@ import {
   TabBarBottom,
   NavigationActions
 } from 'react-navigation'
+import AboutScreen from '../Containers/AboutScreen'
+import PrivacyPolicyScreen from '../Containers/PrivacyPolicyScreen'
 import ComissionsScreen from '../Containers/ComissionsScreen'
 import WithdrawalsScreen from '../Containers/WithdrawalsScreen'
 import IncomesScreen from '../Containers/IncomesScreen'
@@ -27,7 +29,7 @@ const HomeStackNavigator = StackNavigator(
     HomeScreen: {
       screen: HomeScreen,
       navigationOptions: {
-        headerTitle: I18n.t('home')
+        headerTitle: I18n.t('Gobit')
       }
     }
   },
@@ -110,6 +112,18 @@ const ProfileStackNavigator = StackNavigator(
       navigationOptions: {
         headerTitle: I18n.t('settingsScreen-title')
       }
+    },
+    PrivacyPolicyScreen: {
+      screen: PrivacyPolicyScreen,
+      navigationOptions: {
+        headerTitle: I18n.t('privacyPolicy')
+      }
+    },
+    AboutScreen: {
+      screen: AboutScreen,
+      navigationOptions: {
+        headerTitle: I18n.t('aboutGobit')
+      }
     }
   },
   {
@@ -177,7 +191,7 @@ const MainTabNavigator = TabNavigator(
     }
   },
   {
-    initialRouteName: 'StatisticsScreen',
+    initialRouteName: 'ProfileScreen',
     lazy: true,
     animationEnabled: false,
     tabBarPosition: 'bottom',
@@ -254,7 +268,7 @@ const AuthStack = StackNavigator(
     }
   },
   {
-    initialRouteName: 'Main',
+    initialRouteName: 'SplashScreen',
     headerMode: 'main'
   }
 )

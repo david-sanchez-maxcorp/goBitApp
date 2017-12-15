@@ -63,6 +63,7 @@ class WalletScreen extends Component {
             onPress={this.updateIndex}
             selectedIndex={this.state.selectedIndex}
             buttons={buttons}
+            containerStyle={styles.buttonGroupContainer}
           />
           <Card title={I18n.t('withdraw-pay')} titleStyle={styles.title}>
             <Form

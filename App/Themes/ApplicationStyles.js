@@ -31,7 +31,16 @@ const ApplicationStyles = {
       fontSize: 17,
       marginBottom: 7,
       fontWeight: '400'
-    }
+    },
+    outerButton: {
+      marginRight: 15,
+      marginLeft: 15
+    },
+    innerButton: {
+      marginRight: 0,
+      marginLeft: 0
+    },
+    buttonGroupContainer: { marginTop: 15 }
   },
   fonts: {
     smallText: {

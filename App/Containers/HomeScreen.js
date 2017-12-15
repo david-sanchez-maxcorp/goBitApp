@@ -47,7 +47,9 @@ class HomeScreen extends Component {
             onPress={this.updateIndex}
             selectedIndex={this.state.selectedIndex}
             buttons={buttons}
+            containerStyle={styles.buttonGroupContainer}
           />
+
           <Card title={I18n.t('balance')} titleStyle={styles.title}>
             <Text style={styles.mediumText}>{I18n.t('available')}</Text>
             <Text style={styles.largeText}>0 USD ≈</Text>
@@ -75,6 +77,7 @@ class HomeScreen extends Component {
             }}
             title={I18n.t('copyWalletAddress')}
             onPress={this.writeToClipboard}
+            containerViewStyle={styles.copyButton}
           />
         </KeyboardAvoidingView>
       </ScrollView>

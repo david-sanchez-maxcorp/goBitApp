@@ -54,6 +54,7 @@ class StatisticsScreen extends Component {
             onPress={this.updateIndex}
             selectedIndex={this.state.selectedIndex}
             buttons={buttons}
+            containerStyle={styles.buttonGroupContainer}
           />
           <List>
             <ListItem

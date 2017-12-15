@@ -1,4 +1,5 @@
 {
+  "Gobit": "GoBit",
   "signIn": "Registrarse",
   "logOut": "Cerrar Sesion",
   "api": "API",
@@ -84,5 +85,14 @@
   "litecoin": "Litecoin",
   "incomes": "Ingresos",
   "withdrawals": "Retiros",
-  "comissions": "Comisiones"
+  "comissions": "Comisiones",
+  "uploadImage": "Cargar imagen",
+  "userInformation": "Informacion del Usuario",
+  "options": "Options",
+  "changePassword": "Cambiar contraseña",
+  "updateData": "Actualizar datos",
+  "updatePassword": "Actualizar contraseña",
+  "privacyPolicy": "Politica de privacidad",
+  "aboutGobit": "Acerca de Gobit",
+  "signOut": "Cerrar sesion"
 }
