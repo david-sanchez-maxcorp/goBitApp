@@ -127,6 +127,7 @@ const ProfileStackNavigator = StackNavigator(
     }
   },
   {
+    initialRouteName: 'AboutScreen',
     headerMode: 'screen'
   }
 )
@@ -268,7 +269,7 @@ const AuthStack = StackNavigator(
     }
   },
   {
-    initialRouteName: 'SplashScreen',
+    initialRouteName: 'Main',
     headerMode: 'main'
   }
 )

@@ -42,7 +42,10 @@ const colors = {
   purple: '#8e44ad',
   orange: '#e67e22',
   githubDark: '#1f2327',
-  alabaster: '#f7f7f7'
+  alabaster: '#f7f7f7',
+  gradient1: '#66BB57',
+  gradient2: '#65BA88',
+  gradient3: '#62B9BA'
 }
 
 export default colors
