@@ -30,7 +30,7 @@ class AboutScreen extends Component {
           <Text style={styles.welcomeTitleBold}>
             {I18n.t('aboutUsScreen-benefits-title')}
           </Text>
-          <Text style={styles.text}>
+          <Text style={styles.description}>
             {I18n.t('aboutUsScreen-benefits-text')}
           </Text>
           <View style={[styles.imageTextContainer, styles.section]}>
@@ -54,7 +54,7 @@ class AboutScreen extends Component {
           <Text style={[styles.welcomeTitleBold, styles.section]}>
             {I18n.t('aboutUsScreen-aboutUs-title')}
           </Text>
-          <Text style={styles.text}>
+          <Text style={styles.description}>
             {I18n.t('aboutUsScreen-aboutUs-text')}
           </Text>
           <View style={[styles.textContainer, styles.section]}>
@@ -87,7 +87,7 @@ class AboutScreen extends Component {
           <Text style={[styles.welcomeTitleBold, styles.section]}>
             {I18n.t('slogan')}
           </Text>
-          <Text style={styles.text}>{I18n.t('sloganIntroduction')}</Text>
+          <Text style={styles.description}>{I18n.t('sloganIntroduction')}</Text>
           <View style={styles.textContainerRow}>
             <Image style={styles.imageLarge} source={Images.asset11} />
             <View style={styles.container}>

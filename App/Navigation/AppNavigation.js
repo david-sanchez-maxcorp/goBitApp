@@ -80,6 +80,7 @@ const StatisticsStackNavigator = StackNavigator(
     }
   },
   {
+    initialRouteName: 'IncomesScreen',
     headerMode: 'screen'
   }
 )
@@ -134,7 +135,7 @@ const ProfileStackNavigator = StackNavigator(
 
 const MainTabNavigator = TabNavigator(
   {
-    Home: {
+    HomeScreen: {
       screen: HomeStackNavigator,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
@@ -192,7 +193,7 @@ const MainTabNavigator = TabNavigator(
     }
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'StatisticsScreen',
     lazy: true,
     animationEnabled: false,
     tabBarPosition: 'bottom',

@@ -10,7 +10,8 @@ export const reducers = combineReducers({
   login: require('./LoginRedux').reducer,
   register: require('./RegisterRedux').reducer,
   balance: require('./BalanceRedux').reducer,
-  wallet: require('./WalletRedux').reducer
+  wallet: require('./WalletRedux').reducer,
+  income: require('./IncomeRedux').reducer
 })
 
 export default () => {

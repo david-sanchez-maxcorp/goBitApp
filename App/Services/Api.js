@@ -28,12 +28,16 @@ const create = () => {
 
   const postWallet = token => api.post('wallets', {}, { headers: { token } })
 
+  const postIncome = token =>
+    api.post('stats/deposit', {}, { headers: { token } })
+
   return {
     postlogin,
     postRegister,
     postSummaryUser,
     getWallet,
-    postWallet
+    postWallet,
+    postIncome
   }
 }
 

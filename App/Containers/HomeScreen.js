@@ -12,13 +12,10 @@ import { connect } from 'react-redux'
 import { Card, Button } from 'react-native-elements'
 import I18n from 'react-native-i18n'
 import QRCode from 'react-native-qrcode'
-import API from '../Services/Api'
 import BalanceActions from '../Redux/BalanceRedux'
 import WalletActions from '../Redux/WalletRedux'
 import Spinner from 'react-native-spinkit'
 
-const api = API.create()
-// Styles
 import styles from './Styles/HomeScreenStyle'
 
 class HomeScreen extends Component {
@@ -58,7 +55,7 @@ class HomeScreen extends Component {
   }
 
   writeToClipboard = async () => {
-    await Clipboard.setString(this.state.walletAddress)
+    await Clipboard.setString(this.props.walletState.payload.address)
     Alert.alert(I18n.t('copied'), I18n.t('walletAddressCopied'))
   }
 

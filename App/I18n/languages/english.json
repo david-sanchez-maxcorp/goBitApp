@@ -94,5 +94,7 @@
   "updatePassword": "Update Password",
   "privacyPolicy": "Privacy Policy",
   "aboutGobit": "About Gobit",
-  "signOut": "Sign Out"
+  "signOut": "Sign Out",
+  "noIncomes": "No Incomes",
+  "incomesParagraph": "Incomes will be shown here"
 }

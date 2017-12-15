@@ -78,6 +78,12 @@ export default StyleSheet.create({
     marginTop: Metrics.doubleBaseMargin
   },
   text: {
+    color: Colors.white,
+    fontSize: Normalize(Fonts.size.regular),
+    marginTop: Metrics.doubleBaseMargin,
+    ...Fonts.FontMaker({ fontWeigth: 'SemiBold' })
+  },
+  description: {
     color: Colors.black,
     fontSize: Normalize(Fonts.size.regular),
     marginTop: Metrics.doubleBaseMargin,

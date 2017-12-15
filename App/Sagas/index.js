@@ -8,6 +8,7 @@ import { LoginTypes } from '../Redux/LoginRedux'
 import { RegisterTypes } from '../Redux/RegisterRedux'
 import { BalanceTypes } from '../Redux/BalanceRedux'
 import { WalletTypes } from '../Redux/WalletRedux'
+import { IncomeTypes } from '../Redux/IncomeRedux'
 
 /* ------------- Sagas ------------- */
 
@@ -16,6 +17,7 @@ import { postLogin } from './LoginSagas'
 import { postRegister } from './RegisterSagas'
 import { postBalance } from './BalanceSagas'
 import { getWallet } from './WalletSagas'
+import { postIncome } from './IncomeSagas'
 
 /* ------------- API ------------- */
 
@@ -33,6 +35,7 @@ export default function * root () {
     takeLatest(LoginTypes.LOGIN_REQUEST, postLogin, api),
     takeLatest(RegisterTypes.REGISTER_REQUEST, postRegister, api),
     takeLatest(BalanceTypes.BALANCE_REQUEST, postBalance, api),
-    takeLatest(WalletTypes.WALLET_REQUEST, getWallet, api)
+    takeLatest(WalletTypes.WALLET_REQUEST, getWallet, api),
+    takeLatest(IncomeTypes.INCOME_REQUEST, postIncome, api)
   ])
 }
