@@ -193,7 +193,7 @@ const MainTabNavigator = TabNavigator(
     }
   },
   {
-    initialRouteName: 'StatisticsScreen',
+    initialRouteName: 'HomeScreen',
     lazy: true,
     animationEnabled: false,
     tabBarPosition: 'bottom',
@@ -270,7 +270,7 @@ const AuthStack = StackNavigator(
     }
   },
   {
-    initialRouteName: 'LoginScreen',
+    initialRouteName: 'SplashScreen',
     headerMode: 'main'
   }
 )

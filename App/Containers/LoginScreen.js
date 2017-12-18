@@ -35,8 +35,8 @@ class LoginScreen extends Component {
 
     this.state = {
       value: {
-        email: 'dave',
-        password: '1234'
+        email: 'deividsanchez96@gmail.com',
+        password: '123456'
       }
     }
     this.navigateToRegister = this.navigateToRegister.bind(this)

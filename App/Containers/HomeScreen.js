@@ -9,7 +9,7 @@ import {
   RefreshControl
 } from 'react-native'
 import { connect } from 'react-redux'
-import { Card, Button } from 'react-native-elements'
+import { Card, Button, ButtonGroup } from 'react-native-elements'
 import I18n from 'react-native-i18n'
 import QRCode from 'react-native-qrcode'
 import BalanceActions from '../Redux/BalanceRedux'
@@ -22,7 +22,8 @@ class HomeScreen extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      refreshing: false
+      refreshing: false,
+      selectedIndex: 0
     }
 
     this.writeToClipboard = this.writeToClipboard.bind(this)
@@ -31,6 +32,11 @@ class HomeScreen extends Component {
     this.renderBalance = this.renderBalance.bind(this)
     this.renderAddress = this.renderAddress.bind(this)
     this.renderCopyButton = this.renderCopyButton.bind(this)
+    this.updateIndex = this.updateIndex.bind(this)
+  }
+
+  updateIndex(selectedIndex) {
+    this.setState({ selectedIndex })
   }
 
   componentDidMount() {
@@ -119,7 +125,8 @@ class HomeScreen extends Component {
   }
 
   render() {
-    const buttons = [I18n.t('bitcoin')]
+    const buttons = ['Bitcoin', 'Litecoin']
+    const { selectedIndex } = this.state
     return (
       <ScrollView
         style={styles.container}
@@ -131,6 +138,12 @@ class HomeScreen extends Component {
         }
       >
         <KeyboardAvoidingView behavior="position">
+          <ButtonGroup
+            onPress={this.updateIndex}
+            selectedIndex={selectedIndex}
+            buttons={buttons}
+            containerStyle={{ height: 30 }}
+          />
           <Card title={I18n.t('balance')} titleStyle={styles.title}>
             {this.renderBalance()}
           </Card>

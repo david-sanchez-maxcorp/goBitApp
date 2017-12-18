@@ -1,8 +1,8 @@
 export default {
   showDevScreens: __DEV__,
   useFixtures: false,
-  ezLogin: true,
-  ezSignup: true,
+  ezLogin: false,
+  ezSignup: false,
   yellowBox: __DEV__,
   reduxLogging: __DEV__,
   includeExamples: __DEV__,

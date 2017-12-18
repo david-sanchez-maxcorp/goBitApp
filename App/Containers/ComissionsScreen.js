@@ -69,8 +69,8 @@ class ComissionsScreen extends Component {
   renderEmpty() {
     return (
       <NoItem
-        iconName="upload"
-        type="feather"
+        iconName="dollar-bill"
+        type="foundation"
         infoHeading={I18n.t('noComissions')}
         infoParagraph={I18n.t('comissionsParagraph')}
       />
