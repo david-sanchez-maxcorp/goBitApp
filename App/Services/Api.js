@@ -1,8 +1,7 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce'
-import Secrets from 'react-native-config'
 
-let baseURL = Secrets.API_URL
+let baseURL = 'http://api.gobit.co/v1/'
 
 if (__DEV__) {
   baseURL = 'http://192.168.1.36:3000/v1/'

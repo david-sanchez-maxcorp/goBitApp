@@ -8,6 +8,7 @@ import {
   TabBarBottom,
   NavigationActions
 } from 'react-navigation'
+import ScannerScreen from '../Containers/ScannerScreen'
 import AboutScreen from '../Containers/AboutScreen'
 import PrivacyPolicyScreen from '../Containers/PrivacyPolicyScreen'
 import ComissionsScreen from '../Containers/ComissionsScreen'
@@ -44,6 +45,12 @@ const WalletStackNavigator = StackNavigator(
       screen: WalletScreen,
       navigationOptions: {
         headerTitle: I18n.t('wallet')
+      }
+    },
+    ScannerScreen: {
+      screen: ScannerScreen,
+      navigationOptions: {
+        headerTitle: I18n.t('codeReaderScreen-title')
       }
     }
   },
@@ -194,8 +201,8 @@ const MainTabNavigator = TabNavigator(
   },
   {
     initialRouteName: 'HomeScreen',
-    lazy: true,
-    animationEnabled: false,
+    lazy: false,
+    animationEnabled: true,
     tabBarPosition: 'bottom',
     tabBarOptions: {
       showLabel: false,
@@ -270,7 +277,7 @@ const AuthStack = StackNavigator(
     }
   },
   {
-    initialRouteName: 'SplashScreen',
+    initialRouteName: 'LoginScreen',
     headerMode: 'main'
   }
 )

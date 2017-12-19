@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { ScrollView, Text, KeyboardAvoidingView } from 'react-native'
+import { ScrollView, Text, KeyboardAvoidingView, Alert } from 'react-native'
 import { connect } from 'react-redux'
 import t from 'tcomb-form-native'
 import I18n from 'react-native-i18n'
 import { Card, Button } from 'react-native-elements'
 
 // Add Actions - replace 'Your' with whatever your reducer is called :)
-// import YourActions from '../Redux/YourRedux'
+import ScannerActions from '../Redux/ScannerRedux'
 
 // Styles
 import styles from './Styles/WalletScreenStyle'
@@ -44,6 +44,29 @@ class WalletScreen extends Component {
         amount: null
       }
     }
+    this.goToScanner = this.goToScanner.bind(this)
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.scannerState.selectedWallet !== null) {
+      Alert.alert(
+        I18n.t('walletUpdatedTitle'),
+        I18n.t('walletUpdatedDescription')
+      )
+      this.setState(
+        {
+          value: {
+            to: nextProps.scannerState.selectedWallet,
+            amount: null
+          }
+        },
+        () => this.props.setSelectedWallet(null)
+      )
+    }
+  }
+
+  goToScanner () {
+    this.props.navigation.navigate('ScannerScreen')
   }
 
   render () {
@@ -63,6 +86,7 @@ class WalletScreen extends Component {
               containerViewStyle={styles.scanButton}
               icon={{ name: 'qrcode', type: 'font-awesome' }}
               title={I18n.t('scanQrCode')}
+              onPress={this.goToScanner}
             />
             <Button
               containerViewStyle={styles.sendButton}
@@ -77,11 +101,16 @@ class WalletScreen extends Component {
 }
 
 const mapStateToProps = state => {
-  return {}
+  return {
+    scannerState: state.scanner
+  }
 }
 
 const mapDispatchToProps = dispatch => {
-  return {}
+  return {
+    setSelectedWallet: wallet =>
+      dispatch(ScannerActions.setSelectedWallet(wallet))
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(WalletScreen)
