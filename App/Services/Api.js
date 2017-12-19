@@ -36,6 +36,12 @@ const create = () => {
   const postComission = token =>
     api.post('stats/comissions', {}, { headers: { token } })
 
+  const getUserInfo = ({ userID, token }) =>
+    api.get(`users/${userID}`, {}, { headers: { token } })
+
+  const putUserInfo = ({ userID, token, user }) =>
+    api.put(`users/${userID}`, user, { headers: { token } })
+
   return {
     postlogin,
     postRegister,
@@ -44,7 +50,9 @@ const create = () => {
     postWallet,
     postIncome,
     postWithdrawal,
-    postComission
+    postComission,
+    getUserInfo,
+    putUserInfo
   }
 }
 

@@ -200,7 +200,7 @@ const MainTabNavigator = TabNavigator(
     }
   },
   {
-    initialRouteName: 'HomeScreen',
+    initialRouteName: 'ProfileScreen',
     lazy: false,
     animationEnabled: true,
     tabBarPosition: 'bottom',

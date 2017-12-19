@@ -12,7 +12,6 @@
   "signUp": "Registrate",
   "noItems": "No Items",
   "search": "Buscar",
-  "email": "Email",
   "fullName": "Nombre Completo",
   "next": "Siguiente",
   "enterNumber": "Porfavor confirma tu codigo de pais e ingresa tu numero",
@@ -100,5 +99,9 @@
   "noWithdrawals": "Sin Retiros",
   "withdrawalsParagraph": "Los ingresos van a ser listados aqui",
   "noComissions": "Sin Comisiones",
-  "comissionsParagraph": "Las comisiones van a ser listadas aqui"
+  "comissionsParagraph": "Las comisiones van a ser listadas aqui",
+  "firstName": "Nombre",
+  "lastName": "Apellido",
+  "email": "Email",
+  "sponsor": "Patrocinador"
 }

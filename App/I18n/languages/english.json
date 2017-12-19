@@ -12,7 +12,6 @@
   "signUp": "Sign Up",
   "noItems": "No Items",
   "search": "Search",
-  "email": "Email",
   "fullName": "Full Name",
   "next": "Next",
   "enterNumber": "Please confirm your country code and enter your number",
@@ -100,5 +99,9 @@
   "noWithdrawals": "No Withdrawals",
   "withdrawalsParagraph": "Withdrawals will be shown here",
   "noComissions": "No Comissions",
-  "comissionsParagraph": "Comissions will be shown here"
+  "comissionsParagraph": "Comissions will be shown here",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "email": "Email",
+  "sponsor": "Sponsor"
 }

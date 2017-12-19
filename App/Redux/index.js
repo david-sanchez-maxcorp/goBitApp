@@ -14,7 +14,9 @@ export const reducers = combineReducers({
   income: require('./IncomeRedux').reducer,
   withdrawal: require('./WithdrawalRedux').reducer,
   comission: require('./ComissionRedux').reducer,
-  scanner: require('./ScannerRedux').reducer
+  scanner: require('./ScannerRedux').reducer,
+  userInfo: require('./UserInfoRedux').reducer,
+  updateUserInfo: require('./UpdateInfoUserRedux').reducer
 })
 
 export default () => {

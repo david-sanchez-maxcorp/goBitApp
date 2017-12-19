@@ -11,6 +11,8 @@ import { WalletTypes } from '../Redux/WalletRedux'
 import { IncomeTypes } from '../Redux/IncomeRedux'
 import { WithdrawalTypes } from '../Redux/WithdrawalRedux'
 import { ComissionTypes } from '../Redux/ComissionRedux'
+import { UserInfoTypes } from '../Redux/UserInfoRedux'
+import { UpdateInfoUserTypes } from '../Redux/UpdateInfoUserRedux'
 
 /* ------------- Sagas ------------- */
 
@@ -22,6 +24,8 @@ import { getWallet } from './WalletSagas'
 import { postIncome } from './IncomeSagas'
 import { postWithdrawal } from './WithdrawalSagas'
 import { postComission } from './ComissionSagas'
+import { getUserInfo } from './UserInfoSagas'
+import { putUpdateInfoUser } from './UpdateInfoUserSagas'
 
 /* ------------- API ------------- */
 
@@ -34,7 +38,6 @@ const api = API.create()
 
 export default function * root () {
   yield all([
-    // some sagas only receive an action
     takeLatest(StartupTypes.STARTUP, startup),
     takeLatest(LoginTypes.LOGIN_REQUEST, postLogin, api),
     takeLatest(RegisterTypes.REGISTER_REQUEST, postRegister, api),
@@ -42,6 +45,12 @@ export default function * root () {
     takeLatest(WalletTypes.WALLET_REQUEST, getWallet, api),
     takeLatest(IncomeTypes.INCOME_REQUEST, postIncome, api),
     takeLatest(WithdrawalTypes.WITHDRAWAL_REQUEST, postWithdrawal, api),
-    takeLatest(ComissionTypes.COMISSION_REQUEST, postComission, api)
+    takeLatest(ComissionTypes.COMISSION_REQUEST, postComission, api),
+    takeLatest(UserInfoTypes.USER_INFO_REQUEST, getUserInfo, api),
+    takeLatest(
+      UpdateInfoUserTypes.UPDATE_INFO_USER_REQUEST,
+      putUpdateInfoUser,
+      api
+    )
   ])
 }
