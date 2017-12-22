@@ -1,4 +1,4 @@
-package com.baseapp;
+package com.gobit;
 
 import android.app.Application;
 
