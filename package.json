@@ -39,6 +39,7 @@
     "react-native-config": "^0.10.0",
     "react-native-elements": "^0.18.2",
     "react-native-i18n": "1.0.0",
+    "react-native-image-picker": "^0.26.7",
     "react-native-linear-gradient": "^2.3.0",
     "react-native-qrcode": "^0.2.6",
     "react-native-spinkit": "^1.1.1",

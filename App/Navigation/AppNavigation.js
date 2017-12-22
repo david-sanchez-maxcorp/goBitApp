@@ -223,7 +223,7 @@ const MainTabNavigator = TabNavigator(
               'HomeScreen',
               'WalletScreen',
               'StatisticsScreen',
-              'StatisticsScreen'
+              'ProfileScreen'
             ][index]
 
             dispatch(
@@ -277,7 +277,7 @@ const AuthStack = StackNavigator(
     }
   },
   {
-    initialRouteName: 'LoginScreen',
+    initialRouteName: 'RegisterScreen',
     headerMode: 'main'
   }
 )

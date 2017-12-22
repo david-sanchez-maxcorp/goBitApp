@@ -35,8 +35,8 @@ class LoginScreen extends Component {
 
     this.state = {
       value: {
-        email: 'deividsanchez96@gmail.com',
-        password: '123456'
+        email: '',
+        password: ''
       }
     }
     this.navigateToRegister = this.navigateToRegister.bind(this)
@@ -49,7 +49,7 @@ class LoginScreen extends Component {
       this.setState(
         {
           value: {
-            email: 'deividsanchez96@test.com',
+            email: 'deividsanchez96@gmail.com',
             password: '123456'
           }
         },

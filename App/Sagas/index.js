@@ -27,14 +27,7 @@ import { postComission } from './ComissionSagas'
 import { getUserInfo } from './UserInfoSagas'
 import { putUpdateInfoUser } from './UpdateInfoUserSagas'
 
-/* ------------- API ------------- */
-
-const api = API.create()
-
-// The API we use is only used from Sagas, so we create it here and pass along
-// to the sagas which need it.
-
-/* ------------- Connect Types To Sagas ------------- */
+let api = API.create()
 
 export default function * root () {
   yield all([

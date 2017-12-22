@@ -12,8 +12,7 @@ import { connect } from 'react-redux'
 import I18n from 'react-native-i18n'
 import t from 'tcomb-form-native'
 import Spinner from 'react-native-spinkit'
-
-// Add Actions - replace 'Your' with whatever your reducer is called :)
+import ImagePicker from 'react-native-image-picker'
 import UserInfoActions from '../Redux/UserInfoRedux'
 import UpdateInfoUserActions from '../Redux/UpdateInfoUserRedux'
 
@@ -59,6 +58,14 @@ const userOptions = {
   }
 }
 
+const imagePickerOptions = {
+  title: 'Select Avatar',
+  storageOptions: {
+    skipBackup: true,
+    path: 'images'
+  }
+}
+
 class ProfileScreen extends Component {
   constructor (props) {
     super(props)
@@ -71,6 +78,7 @@ class ProfileScreen extends Component {
     this.onRefresh = this.onRefresh.bind(this)
     this.getUri = this.getUri.bind(this)
     this.handleUpdateUserInfo = this.handleUpdateUserInfo.bind(this)
+    this.handleButtonImage = this.handleButtonImage.bind(this)
   }
 
   componentDidMount () {
@@ -80,6 +88,25 @@ class ProfileScreen extends Component {
   getUri (url) {
     url = url.replace(/^http:\/\//i, 'https://')
     return { uri: url }
+  }
+
+  handleButtonImage () {
+    ImagePicker.showImagePicker(imagePickerOptions, response => {
+      console.tron.log('Response = ' + response)
+
+      if (response.didCancel) {
+        console.tron.log('User cancelled image picker')
+      } else if (response.error) {
+        console.tron.log('ImagePicker Error: ' + response.error)
+      } else if (response.customButton) {
+        console.tron.log('User tapped custom button: ' + response.customButton)
+      } else {
+        let source = { uri: response.uri }
+        this.setState({
+          avatarSource: source
+        })
+      }
+    })
   }
 
   getUserInfo () {
@@ -157,30 +184,29 @@ class ProfileScreen extends Component {
           />
         }
       >
-        {this.renderProfileImage()}
-        <Button
-          containerViewStyle={styles.outerButton}
-          title={I18n.t('uploadImage')}
-          backgroundColor="#68B67C"
-        />
-        <Card title={I18n.t('userInformation')} titleStyle={styles.title}>
-          {this.renderUserInfo()}
-        </Card>
-        <Button
-          containerViewStyle={styles.outerButton}
-          title={I18n.t('updateData')}
-          backgroundColor="#68B67C"
-          onPress={this.handleUpdateUserInfo}
-        />
-
-        <Card title={I18n.t('changePassword')} titleStyle={styles.title}>
-          <Form ref="passForm" type={ChangePassword} onChange={this.onChange} />
-        </Card>
-        <Button
-          containerViewStyle={styles.outerButton}
-          title={I18n.t('updatePassword')}
-          backgroundColor="#68B67C"
-        />
+        <KeyboardAvoidingView
+          behavior="position"
+          style={{
+            flex: 1
+          }}
+        >
+          {this.renderProfileImage()}
+          <Button
+            containerViewStyle={styles.outerButton}
+            title={I18n.t('uploadImage')}
+            backgroundColor="#68B67C"
+            onPress={this.handleButtonImage}
+          />
+          <Card title={I18n.t('userInformation')} titleStyle={styles.title}>
+            {this.renderUserInfo()}
+          </Card>
+          <Button
+            containerViewStyle={styles.outerButton}
+            title={I18n.t('updateData')}
+            backgroundColor="#68B67C"
+            onPress={this.handleUpdateUserInfo}
+          />
+        </KeyboardAvoidingView>
       </ScrollView>
     )
   }

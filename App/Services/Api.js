@@ -1,10 +1,10 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce'
 
-let baseURL = 'http://api.gobit.co/v1/'
+let baseURL = 'https://2aa70366.ngrok.io/v1/'
 
 if (__DEV__) {
-  baseURL = 'http://192.168.1.36:3000/v1/'
+  baseURL = 'http://192.168.1.18:3000/v1/'
 }
 
 const create = () => {
@@ -16,31 +16,27 @@ const create = () => {
     timeout: 10000
   })
 
+  const setHeader = token => api.setHeader('Authorization', token)
+
   const postlogin = user => api.post('login', user)
 
   const postRegister = user => api.post('users', user)
 
-  const postSummaryUser = token =>
-    api.post('summary/user', {}, { headers: { token } })
+  const postSummaryUser = () => api.post('summary/user')
 
-  const getWallet = userUUID => api.get(`wallet/${userUUID}`, {})
+  const getWallet = userUUID => api.get(`wallet/${userUUID}`)
 
-  const postWallet = token => api.post('wallets', {}, { headers: { token } })
+  const postWallet = () => api.post('wallets')
 
-  const postIncome = token =>
-    api.post('stats/deposit', {}, { headers: { token } })
+  const postIncome = () => api.post('stats/deposit')
 
-  const postWithdrawal = token =>
-    api.post('payments/user', {}, { headers: { token } })
+  const postWithdrawal = () => api.post('payments/user')
 
-  const postComission = token =>
-    api.post('stats/comissions', {}, { headers: { token } })
+  const postComission = () => api.post('stats/comissions')
 
-  const getUserInfo = ({ userID, token }) =>
-    api.get(`users/${userID}`, {}, { headers: { token } })
+  const getUserInfo = userID => api.get(`users/${userID}`)
 
-  const putUserInfo = ({ userID, token, user }) =>
-    api.put(`users/${userID}`, user, { headers: { token } })
+  const putUserInfo = (userID, user) => api.put(`users/${userID}`, user)
 
   return {
     postlogin,
@@ -52,7 +48,8 @@ const create = () => {
     postWithdrawal,
     postComission,
     getUserInfo,
-    putUserInfo
+    putUserInfo,
+    setHeader
   }
 }
 

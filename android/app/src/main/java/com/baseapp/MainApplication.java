@@ -3,6 +3,7 @@ package com.baseapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.imagepicker.ImagePickerPackage;
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import com.react.rnspinkit.RNSpinkitPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
@@ -29,6 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ImagePickerPackage(),
             new RCTCameraPackage(),
             new RNSpinkitPackage(),
             new ReactNativeConfigPackage(),
