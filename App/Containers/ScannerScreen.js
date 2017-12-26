@@ -47,7 +47,7 @@ class ScannerScreen extends Component {
   }
 
   onBarCodeRead(e) {
-    if (e != null && e.type == 'QR_CODE') {
+    if (e != null) {
       let code = e.data
       if (Platform.OS === 'ios') {
         Vibration.vibrate(500, false)

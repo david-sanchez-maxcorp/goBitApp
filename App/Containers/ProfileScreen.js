@@ -7,7 +7,7 @@ import {
   View,
   RefreshControl
 } from 'react-native'
-import { Card, Button } from 'react-native-elements'
+import { Card, Button, List } from 'react-native-elements'
 import { connect } from 'react-redux'
 import I18n from 'react-native-i18n'
 import t from 'tcomb-form-native'

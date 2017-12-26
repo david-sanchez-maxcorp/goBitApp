@@ -277,7 +277,7 @@ const AuthStack = StackNavigator(
     }
   },
   {
-    initialRouteName: 'SplashScreen',
+    initialRouteName: 'WelcomeScreen',
     headerMode: 'main'
   }
 )
